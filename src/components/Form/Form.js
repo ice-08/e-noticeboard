@@ -25,7 +25,7 @@ const Form = () => {
     const handleSubmit = e => {
         e.preventDefault()
         const { noticeNo, title, shortTitle, batchName, date,utitle, imageURL } = user;
-        const url = `https://immense-inlet-62545.herokuapp.com/addProduct`;
+        const url = `https://e-noticeboard-server.onrender.com/addProduct`;
         fetch(url, {
             method: 'POST',
             headers: {
