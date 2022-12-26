@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Form.css'
+import { useNavigate } from 'react-router-dom';
 const Form = () => {
     const [imageURL, setImageURL] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         noticeNo: '',
         title: '',
@@ -37,7 +40,12 @@ const Form = () => {
         })
             .then(res => {
                 console.log('server side response')
-                window.alert("data inserted Successfully")
+                setTimeout(() => {
+                    setLoading(false)
+                  }, 2000)
+                // window.alert("data inserted Successfully")
+                navigate('/');
+
             })
 
     };
